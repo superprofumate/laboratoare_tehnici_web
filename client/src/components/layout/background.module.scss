@@ -1,0 +1,168 @@
+.wrap {
+    position: fixed;
+    top: calc(100vh - 8rem);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background-tertiary);
+
+    --accent-red: #C23A3A;
+    --accent-gold: #f0d36b;
+    z-index: -1;
+}
+.scene {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* soft vignette + ambient glow */
+.scene::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background:
+        radial-gradient(circle at 25% 30%, color-mix(in oklab, var(--text-secondary) 22%, transparent), transparent 60%),
+        radial-gradient(circle at 75% 70%, color-mix(in oklab, var(--accent-red) 14%, transparent), transparent 60%),
+        radial-gradient(circle at 70% 20%, color-mix(in oklab, var(--text-primary) 14%, transparent), transparent 60%);
+    filter: blur(18px);
+    opacity: 0.85;
+    animation: aurora 10s ease-in-out infinite;
+}
+
+.scene::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.42));
+    opacity: 0.75;
+}
+
+/* snow */
+.snow {
+    position: absolute;
+    inset: 0;
+    opacity: 0.55;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 2px, transparent 3px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6) 0 1.6px, transparent 2.6px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.4) 0 1.2px, transparent 2.2px);
+    background-size: 130px 130px, 100px 100px, 75px 75px;
+    background-position: 0 0, 30px 40px, 60px 10px;
+    animation: snowFall 12s linear infinite;
+    filter: blur(0.2px);
+}
+
+/* Garland frame */
+.garland {
+    position: absolute;
+    inset: 18px;
+    border-radius: 26px;
+    display: block;
+}
+
+.bulb {
+    --c: var(--text-secondary);
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: var(--c);
+    box-shadow:
+        0 0 0 2px rgba(0, 0, 0, 0.14),
+        0 0 18px color-mix(in oklab, var(--c) 70%, transparent),
+        0 0 32px color-mix(in oklab, var(--c) 55%, transparent);
+
+    animation:
+        flicker calc(1.2s + (var(--i) * 0.02s)) infinite steps(2, end),
+        glow calc(2.6s + (var(--i) * 0.02s)) infinite ease-in-out,
+        sway calc(1.8s + (var(--i) * 0.01s)) infinite ease-in-out;
+
+    animation-delay: calc(var(--i) * 0.08s);
+    transform-origin: 50% -18px;
+}
+
+/* place bulbs around perimeter */
+.bulb:nth-child(-n + 18) {
+    top: calc(6px + 8rem);
+    left: calc(24px + ((100% - 48px) / 17) * (var(--i)));
+}
+
+.bulb:nth-child(n + 19):nth-child(-n + 28) {
+    right: 6px;
+    top: calc(24px + ((100% - 48px) / 9) * (var(--i) - 18));
+}
+
+.bulb:nth-child(n + 29):nth-child(-n + 46) {
+    bottom: 6px;
+    left: calc(24px + ((100% - 48px) / 17) * (var(--i) - 28));
+}
+
+.bulb:nth-child(n + 47) {
+    left: 6px;
+    top: calc(24px + ((100% - 48px) / 9) * (var(--i) - 46));
+}
+
+/* alternating colors */
+.bulb:nth-child(3n + 1) {
+    --c: var(--text-secondary);
+}
+
+.bulb:nth-child(3n + 2) {
+    --c: var(--accent-red);
+}
+
+.bulb:nth-child(3n) {
+    --c: var(--text-primary);
+}
+
+@keyframes snowFall {
+    0% {
+        background-position: 0 0, 30px 40px, 60px 10px;
+    }
+
+    100% {
+        background-position: 0 520px, 30px 620px, 60px 740px;
+    }
+}
+
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 0.55;
+    }
+
+    35% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0.72;
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        filter: brightness(1) saturate(1);
+    }
+
+    50% {
+        filter: brightness(1.35) saturate(1.2);
+    }
+}
+
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-1.2deg);
+    }
+
+    50% {
+        transform: translateY(1px) rotate(1.6deg);
+    }
+}
