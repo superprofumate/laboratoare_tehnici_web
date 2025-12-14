@@ -40,6 +40,7 @@ export default function Robot() {
                 <div className="robot_tooth_grid"></div>
               </div>
               <div className="bottomRow_grid">
+                <div style={{width: 1.5, backgroundColor: 'black'}}></div>
                 <div className="robot_tooth_grid"></div>
                 <div className="robot_tooth_grid"></div>
                 <div className="robot_tooth_grid"></div>
