@@ -1,0 +1,31 @@
+.article section>* {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.section{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.figure {
+  margin-left: 2rem;
+}
+
+.image {
+  width: 40rem;
+  height: auto;
+}
+
+.paragraph{
+  color: #6993F5;
+}
+.title {
+  color: #C65723;
+  border: 2px solid #F7CECD;
+  border-radius: 999px;
+  padding: 1rem 2rem;
+  background-color: #E3AB84;
+}
