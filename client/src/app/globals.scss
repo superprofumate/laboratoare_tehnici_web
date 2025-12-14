@@ -1,6 +1,10 @@
+/* ==========================================================================
+   GENERAL STYLES
+   ========================================================================== */
 :root {
-  --color-primary: #304430;
-  --color-secondary: whitesmoke;
+  --text-primary: #304430;
+  --text-secondary: whitesmoke;
+  --text-muted: #666666;
 
   --background-primary: #F3E9B7;
   --background-secondary: #8E9883;
@@ -14,14 +18,23 @@ body {
 }
 
 body {
-  background-color: var(--background-primary);
-  color: var(--color-primary);
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
 }
 
-* {
+main {
+  position: relative;
+  z-index: 1;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 a {
@@ -32,4 +45,169 @@ a {
 button {
   cursor: pointer;
   font-family: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+/* ==========================================================================
+   PAGE STYLES
+   ========================================================================== */
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  margin-bottom: 5rem;
+}
+
+.section {
+  min-height: calc(100vh - 8rem);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background: transparent;
+
+  @media(max-width: 768px) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  &--withPadding {
+    padding-left: 6rem;
+    padding-right: 6rem;
+
+    @media(max-width: 768px) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  &--Lab {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 6rem 6rem;
+    min-height: 65vh;
+    background-color: var(--background-primary);
+    border: 3px solid var(--text-primary);
+    border-radius: 40px;
+
+    padding: 3rem 4rem;
+
+    @media(max-width: 768px) {
+      padding: 1.5rem 2rem;
+    }
+  }
+}
+
+
+/* ==========================================================================
+   TEXT STYLES
+   ========================================================================== */
+.text {
+  font-weight: 400;
+  color: var(--text-primary);
+
+  &--title {
+    font-family: var(--font-space-grotesk), serif;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+
+    &Primary {
+      font-size: 4.375rem;
+
+      @media (max-width: 768px) {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 2.5rem;
+      }
+
+      @media (max-width: 380px) {
+        font-size: 2rem;
+      }
+    }
+
+    &Secondary {
+      font-size: 3.125rem;
+
+      @media (max-width: 768px) {
+        font-size: 2.15rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.8rem;
+      }
+
+      @media (max-width: 380px) {
+        font-size: 1.75rem;
+      }
+    }
+
+    &Tertiary {
+      font-size: 2.5rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.75rem;
+      }
+    }
+  }
+
+  &--subtitle {
+    font-family: var(--font-inter), serif;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
+    max-width: 45ch;
+  }
+
+  &--label {
+    font-family: var(--font-archivo), serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &--paragraph {
+    font-family: var(--font-inter), serif;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
+
+    &Primary {
+      font-size: 1rem;
+    }
+
+    &Secondary {
+      font-size: 0.875rem;
+    }
+
+    &Long {
+      font-size: 0.75rem;
+      text-align: justify;
+      hyphens: auto;
+    }
+  }
 }
