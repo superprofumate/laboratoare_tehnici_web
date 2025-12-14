@@ -1,0 +1,91 @@
+.robot_grid {
+  height: 55vh;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  gap: 1rem;
+  background: #a6b4c4;
+  background-image: radial-gradient(#a6b4c4, #59798e);
+}
+
+.robot_eyes_grid {
+  width: 400px;
+  height: 150px;
+  border: 3px solid black;
+  border-radius: 200px;
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  align-self: end;
+}
+
+.robot_socket_grid {
+  width: 375px;
+  height: 125px;
+  border: 3px solid black;
+  border-radius: 200px;
+  background: black;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.robot_eye_grid {
+  height: 145px;
+  width: 145px;
+  background-color: #fefbb8;
+  border-radius: 100%;
+  margin: -10px 10px 0px 10px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.robot_pupil_grid {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+}
+
+.robot_mouth_grid {
+  width: 275px;
+  height: 100px;
+  background-color: black;
+  margin-top: 60px;
+  border-radius: 50px;
+  border: 4px solid black;
+  position: relative;
+
+  display: grid;
+  place-items: start;
+  grid-template-rows: repeat(2, 1fr);
+  overflow: hidden;
+  row-gap: 8px;
+
+   align-self: start;
+   justify-self: center;
+}
+
+.topRow_grid{
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr) 2px repeat(4, 1fr);
+  overflow: hidden;
+  justify-self: center;
+}
+.bottomRow_grid{
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1.5px repeat(8, 1fr);
+  overflow: hidden;
+}
+
+.robot_tooth_grid {
+  height: 46px;
+  width: 33px;
+  background-color: #fefbb8;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
