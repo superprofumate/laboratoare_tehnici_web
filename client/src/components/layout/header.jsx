@@ -11,7 +11,7 @@ import { useState } from "react";
 const labs = [
   {
     id: 2,
-    name: "lab2",
+    name: "lab2 / lab3",
     items: [
       {
         name: "8-bit World",
@@ -24,14 +24,18 @@ const labs = [
     ]
   },
   {
-    id: 3,
-    name: "lab3",
-    link: "/lab3"
-  },
-  {
     id: 4,
     name: "lab4",
-    link: "/lab4"
+    items: [
+      {
+        name: "Layout Simple",
+        link: "/lab4/css-layout"
+      },
+      {
+        name: "Robot",
+        link: "/lab4/robot"
+      }
+    ]
   },
   {
     id: 5,
