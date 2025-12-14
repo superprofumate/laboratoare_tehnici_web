@@ -9,6 +9,7 @@
   --background-primary: #F3E9B7;
   --background-secondary: #8E9883;
   --background-tertiary: #32352E;
+  --background-lab: white;
 }
 
 html,
@@ -108,7 +109,7 @@ svg {
     align-items: flex-start;
     margin: 6rem 6rem;
     min-height: 65vh;
-    background-color: var(--background-primary);
+    background-color: var(--background-lab);
     border: 3px solid var(--text-primary);
     border-radius: 40px;
 
@@ -129,7 +130,8 @@ svg {
   color: var(--text-primary);
 
   &--title {
-    font-family: var(--font-space-grotesk), serif;
+    font-weight: 600 !important;
+    font-family: var(--font-space-grotesk), 'serif';
     letter-spacing: -0.02em;
     line-height: 1;
     text-transform: uppercase;

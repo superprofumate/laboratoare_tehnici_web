@@ -41,9 +41,9 @@ export default function RootLayout({ children }) {
       <body>
         <Background />
         <Header />
-        <main>
+        <div className="section--Lab">
           {children}
-        </main>
+        </div>
       </body>
     </html>
   );

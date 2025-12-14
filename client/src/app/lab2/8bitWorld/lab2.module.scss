@@ -1,0 +1,49 @@
+.article>* {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.title{
+  background-color: var(--background-primary);
+  border-radius: 200px;
+  padding: 1rem 2rem; 
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.link,
+.list a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+
+}
+.navBar a{
+  color: var(--background-secondary);
+
+  transition: transform 0.2s ease-in-out;
+}
+.navBar a:hover{
+  transform: translateY(-2px);
+}
+
+.list {
+  padding-left: 2.5rem;
+}
+
+.figure{
+    margin-left: 2rem;
+}
+.figure figcaption{
+    color: var(--text-muted) !important;
+}
+.image{
+    width: 40rem;
+    height: auto;
+}

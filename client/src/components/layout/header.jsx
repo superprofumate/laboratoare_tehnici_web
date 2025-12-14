@@ -14,28 +14,12 @@ const labs = [
     name: "lab2",
     items: [
       {
-        name: "section1",
-        link: "/lab2/section1"
+        name: "8-bit World",
+        link: "/lab2/8bitWorld"
       },
       {
-        name: "section2",
-        link: "/lab2/section2"
-      },
-      {
-        name: "section3",
-        link: "/lab2/section3"
-      },
-      {
-        name: "section4",
-        link: "/lab2/section4"
-      },
-      {
-        name: "section5",
-        link: "/lab2/section5"
-      },
-      {
-        name: "section6",
-        link: "/lab2/section6"
+        name: "Mario",
+        link: "/lab2/mario"
       }
     ]
   },
@@ -47,12 +31,7 @@ const labs = [
   {
     id: 4,
     name: "lab4",
-    items: [
-      {
-        name: "section1",
-        link: "/lab4/section1"
-      }
-    ]
+    link: "/lab4"
   },
   {
     id: 5,
