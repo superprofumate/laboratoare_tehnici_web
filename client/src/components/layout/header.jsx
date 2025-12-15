@@ -40,7 +40,28 @@ const labs = [
   {
     id: 5,
     name: "lab5",
-    link: "/lab5"
+    items: [
+      {
+        name: "tiger",
+        link: "/lab5/tiger"
+      },
+      {
+        name: "bees",
+        link: "/lab5/bees"
+      },
+      {
+        name: "hexagon",
+        link: "/lab5/hexagon"
+      },
+      {
+        name: "hexagons tiles",
+        link: "/lab5/hexagons-tiles"
+      },
+      {
+        name: "hexagons animatiles",
+        link: "/lab5/hexagons-animatiles"
+      }
+    ]
   },
   {
     id: 6,
@@ -67,6 +88,9 @@ const labs = [
 export default function Header() {
   const [openDropdown, setOpenDropdown] = useState(false);
 
+  const handleRedirect = () => {
+    setOpenDropdown(false);
+  }
   const handleDropdown = (id) => {
     openDropdown === id ? setOpenDropdown(false) : setOpenDropdown(id);
   }
@@ -95,16 +119,16 @@ export default function Header() {
                   lab?.items ? (
                     <>
                       <span className={`${styles.arrowDropdown} text--label`} onClick={() => { handleDropdown(lab.id); }}>
-                        {lab.name} <RiArrowDropRightLine size={20} style={{ transform: isOpenDropdown ? "rotate(90deg)" : null, transition: "transform 0.2s ease"}} />
+                        {lab.name} <RiArrowDropRightLine size={20} style={{ transform: isOpenDropdown ? "rotate(90deg)" : null, transition: "transform 0.2s ease" }} />
                       </span>
                       {
                         isOpenDropdown && (
                           <div className={styles.dropdown}>
                             {
                               lab.items.map((child, idx) => {
-                                return(
+                                return (
                                   <span key={idx} className="text text--label">
-                                    <Link href={child.link}>
+                                    <Link href={child.link} onClick={() => {handleRedirect();}}>
                                       {child.name}
                                     </Link>
                                   </span>
@@ -117,7 +141,7 @@ export default function Header() {
                     </>
                   ) : (
                     <span className="text--label">
-                      <Link href={lab.link}>
+                      <Link href={lab.link} onClick={() => {handleRedirect();}}>
                         {lab.name}
                       </Link>
                     </span>
