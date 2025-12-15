@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Button from '@/components/ui/button/button.jsx';
 
 export default function Robot() {
-  const [mode, setMode] = useState("grid");
+  const [mode, setMode] = useState("flex");
   const handleClick = () => {
     setMode(prev => prev === "grid" ? "flex" : "grid");
   }

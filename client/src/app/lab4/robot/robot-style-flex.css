@@ -74,3 +74,68 @@
   border-left: 2px solid black;
   border-right: 2px solid black;
 }
+
+/* reguli pentru pleoape */
+
+.robot_eye_flex::before {
+  content: "";
+  position: absolute;
+  width: 145px;
+  height: 50px;
+  top: -50px;
+  background: black;
+  animation-name: topEyelid;
+
+  animation-duration: 5s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.robot_eye_flex::after {
+  content: "";
+  position: absolute;
+  width: 145px;
+  height: 50px;
+  bottom: -50px;
+  background: black;
+  animation-name: bottomEyelid;
+
+  animation-duration: 5s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes topEyelid {
+  /* închide pleoapele */
+  0% {
+    transform: translateY(0px);
+  }
+  /* ține pleoapele închise */
+  20% {
+    transform: translateY(50px);
+  }
+  80% {
+    transform: translateY(50px);
+  }
+  /* deschide pleoapele */
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bottomEyelid {
+  0% {
+    transform: translateY(0px);
+  }
+  20% {
+    transform: translateY(-50px);
+  }
+  80% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
