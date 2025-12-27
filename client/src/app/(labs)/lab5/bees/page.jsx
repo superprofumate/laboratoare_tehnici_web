@@ -2,7 +2,7 @@ export default function Bees() {
   return (
     <>
       <header className="header">
-        <div class="title">The Ministry of Bees </div>
+        <div className="title">The Ministry of Bees </div>
         <nav>
           <ul>
             <li>
@@ -26,40 +26,40 @@ export default function Bees() {
 
           <p>The {`nest's`} internal structure is a densely packed group of hexagonal prismatic cells made of beeswax, called a honeycomb. The bees use the cells to store food (honey and pollen) and to house the brood (eggs, larvae, and pupae). </p>
 
-          <ul class="cards">
+          <ul className="cards">
             <li>
               <h2>Ancient hives</h2>
-              <div class="inner">
+              <div className="inner">
                 <p>Bees were kept in human-made hives in Egypt in antiquity. The walls of the Egyptian sun temple of Nyuserre Ini from the 5th Dynasty, dated earlier than 2422 BC, depict workers blowing smoke into hives as they remove honeycombs.</p>
               </div>
             </li>
             <li>
               <h2>Mud hives</h2>
-              <div class="inner">
+              <div className="inner">
                 <p>Mud hives are still used in Egypt and Siberia. These are long cylinders made from a mixture of unbaked mud, straw, and dung.</p>
               </div>
             </li>
             <li>
               <h2>Clay hives</h2>
-              <div class="inner">
+              <div className="inner">
                 <p>Clay tiles were the customary homes of kept bees in the eastern end of the Mediterranean.</p>
               </div>
             </li>
             <li>
               <h2>Skeps</h2>
-              <div class="inner">
+              <div className="inner">
                 <p>Skeps, baskets placed open-end-down, have been used to house bees for some 2000 years.</p>
               </div>
             </li>
             <li>
               <h2>Bee gums</h2>
-              <div class="inner">
+              <div className="inner">
                 <p>In the eastern United States, especially in the southeast, sections of hollow trees were used until the 20th century. These were called {`"gums"`}.</p>
               </div>
             </li>
           </ul>
         </article>
-        <aside class="sidebar">
+        <aside className="sidebar">
           <p>Do you know why bees love <a href="https://www.youtube.com/watch?v=QEzlsjAqADA">hexagons</a>? {`< /> And what's a `}<a href="http://www.apian.ch/projects/neurocopter/">neurocopter</a> anyway?</p>
 
         </aside>

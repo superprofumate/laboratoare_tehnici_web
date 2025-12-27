@@ -209,7 +209,7 @@ export default function GameX0Layout() {
               </span>
               {
                 endGame !== null &&
-                <RotateCcw size={30} onClick={() => { handleResetGame(); }} />
+                <RotateCcw size={30} onClick={() => { handleResetGame(); }} style={{ cursor: "pointer" }}/>
               }
             </>
           )
