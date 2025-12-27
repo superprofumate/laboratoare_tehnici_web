@@ -1,7 +1,7 @@
 import { Archivo, Inter, Space_Grotesk } from "next/font/google";
 import Header from '@/components/layout/header.jsx';
 import Background from '@/components/layout/background.jsx';
-import "./globals.scss";
+import "../globals.scss";
 
 export const archivo = Archivo({
   variable: "--font-archivo",
