@@ -1,6 +1,6 @@
 "use client"
 
-import context from './draw.js';
+import { contextLab7, contextLab8} from './draw.js';
 import { useEffect, useState } from 'react';
 import Button from '@/components/ui/button/button.jsx';
 import { TbReload } from "react-icons/tb";
@@ -25,7 +25,13 @@ export default function Lab7() {
     mirror,
     smear,
     blur
-  } = context();
+  } = contextLab7();
+
+  const {
+    colorPixelHandler,
+    rainbowRand,
+    clear
+  } = contextLab8();
 
   const buttons = [
     { id: 0, label: 'Draw by col', trigger: colorCol, type: 'input', fields: ['col', 'color'] },
@@ -51,7 +57,10 @@ export default function Lab7() {
 
   useEffect(() => {
     drawTable(nrows, ncols);
-  }, [drawTable]);
+    colorPixelHandler();
+    rainbowRand();
+    clear();
+  }, [drawTable, colorPixelHandler, rainbowRand, clear]);
 
   const [openPopUp, setOpenPopUp] = useState(false);
   const [activePopUp, setActivePopUp] = useState({ id: null, fields: [] });

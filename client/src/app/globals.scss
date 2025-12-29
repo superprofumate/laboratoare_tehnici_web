@@ -213,3 +213,36 @@ svg {
     }
   }
 }
+
+/* ==========================================================================
+   BUTTON STYLES
+   ========================================================================== */
+.button {
+  transition: all 0.2s;
+
+  &--primary {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    background-color: var(--background-secondary);
+    color: var(--text-primary) !important;
+
+    &:hover {
+      background-color: var(--text-primary);
+      color: var(--background-secondary) !important;
+    }
+  }
+
+  &--ghost {
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text-muted);
+
+    &:hover {
+      color: #333;
+      background: rgba(0, 0, 0, 0.05);
+    }
+  }
+}
