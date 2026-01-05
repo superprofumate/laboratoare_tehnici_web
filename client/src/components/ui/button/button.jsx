@@ -3,7 +3,7 @@ import styles from './button.module.scss'
 export default function Button({
   design = "primary",
   label = "default button",
-  onClick,
+  onClick = () => {},
   disabled = false,
 }) {
   const variant = styles[`button--${design}`] ?? styles["button--primary"];

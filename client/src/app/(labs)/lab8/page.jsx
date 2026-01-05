@@ -6,12 +6,23 @@ import { useEffect } from 'react';
 
 export default function Camera() {
   const {
-    handleKeyDown
+    handleMoveImage,
+    handleScaleImage,
+    handleStartCamera,
+    handleTakePhoto
   } = context();
 
   useEffect(() => {
-    handleKeyDown();
-  }, [handleKeyDown])
+    handleMoveImage();
+    handleScaleImage();
+    handleStartCamera();
+    handleTakePhoto();
+  }, [
+    handleMoveImage,
+    handleScaleImage,
+    handleTakePhoto,
+    handleStartCamera
+  ])
 
   return (
     <div id="container">
@@ -22,7 +33,27 @@ export default function Camera() {
           className="image"
           src="/lab8/beatles.webp"
           alt="beatles cover"
-          />
+        />
+      </div>
+
+      <div id="cameraVizor" tabIndex="0" >
+        <div className='topLid'>
+          <button id="cameraButton"> start camera </button>
+        </div>
+
+        <video id="video" autoPlay playsInline ></video>
+        <canvas id="canvas"></canvas>
+        <div className='bottomLid'>
+          <button id="galleryLeft"> {`<-`} </button>
+          <div id='gallery'>
+            {
+              /*
+                Aici sunt introduse imaginile
+              */
+            }
+          </div>
+          <button id="galleryRight"> {`->`} </button>
+        </div>
       </div>
     </div>
   )
