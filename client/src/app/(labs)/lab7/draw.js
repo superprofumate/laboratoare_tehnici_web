@@ -1,3 +1,5 @@
+//functii de la laboratorul 7
+
 function clearTable() {
   const container = document.getElementById('containerDraw');
   const table = container.querySelector('table');
@@ -448,7 +450,7 @@ function blur() {
   setBlurColors(rows, blurred, nrows, ncols);
 }
 
-function context() {
+function contextLab7() {
   const context = {
     clearTable: clearTable,
     drawTable: drawTable,
@@ -473,4 +475,111 @@ function context() {
   return context;
 }
 
-export default context;
+export { contextLab7 };
+
+// functii laborator 8
+
+function getTable() {
+  const container = document.getElementById('containerDraw');
+  const table = container.getElementsByTagName('table')[0];
+  return { container, table };
+}
+
+function createElement(tag, parent) {
+  const elem = document.createElement(tag);
+  parent.appendChild(elem);
+  return elem;
+}
+
+function colorPixelHandler() {
+  const { container, table } = getTable();
+
+  table.addEventListener("click", (e) => {
+    const cell = e.target.closest("td");
+    if (!cell) return;
+
+    const colorInput = createElement('input', container);
+    colorInput.type = "color";
+    colorInput.style.position = "absolute";
+    colorInput.style.left = "0px";
+    colorInput.style.top = "-30px";
+    colorInput.style.opacity = 1;
+    colorInput.style.pointerEvents = "auto";
+
+    const cleanup = () => {
+      if (!colorInput)
+        return;
+
+      colorInput.remove();
+    }
+
+    colorInput.addEventListener("input", () => {
+      cell.style.backgroundColor = colorInput.value;
+    });
+
+    colorInput.addEventListener("change", cleanup);
+    colorInput.addEventListener("blur", cleanup);
+
+    colorInput.click();
+  });
+}
+
+function rainbowRand() {
+  const callRainbow = () => {
+    const options = ["horizontal", "vertical"];
+    const randIdx = Math.floor(Math.random() * options.length);
+    rainbow(options[randIdx]);
+  }
+
+  const createRainbowButton = () => {
+    const { container, table } = getTable();
+    const rainbowButton = createElement('button', container);
+    rainbowButton.className = "button button--ghost";
+    rainbowButton.style.position = "absolute";
+    rainbowButton.style.left = "60px";
+    rainbowButton.style.top = "-30px";
+    rainbowButton.style.padding = "0.25rem 0.5rem";
+
+    const rainbowButtonText = createElement('span', rainbowButton);
+    rainbowButtonText.className = "text text--label";
+    rainbowButtonText.innerHTML = "Rainbow Random";
+    return rainbowButton;
+  }
+
+  const rainbowButton = createRainbowButton();
+  rainbowButton.addEventListener("click", callRainbow);
+}
+
+function clear() {
+  const createClearButton = () => {
+    const { container, table } = getTable();
+    const clearButton = createElement('button', container);
+    clearButton.className = "button button--ghost";
+    clearButton.style.position = "absolute";
+    clearButton.style.left = "230px";
+    clearButton.style.top = "-30px";
+    clearButton.style.padding = "0.25rem 0.5rem";
+    const clearButtonText = createElement('span', clearButton);
+    clearButtonText.className = "text text--label";
+    clearButtonText.innerHTML = "Clear";
+
+    return clearButton;
+  }
+
+  const clearButton = createClearButton();
+  clearButton.addEventListener("click", () => {
+    clearTable();
+  });
+}
+
+function contextLab8() {
+  const context = {
+    colorPixelHandler: colorPixelHandler,
+    rainbowRand: rainbowRand,
+    clear: clear
+  }
+
+  return context;
+}
+
+export { contextLab8 };
