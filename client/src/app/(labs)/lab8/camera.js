@@ -245,14 +245,6 @@ function handleTakePhoto() {
 
   if (!video || !canvas || !cameraVizor) return;
 
-  // container unde pui pozele (opțional)
-  let photos = document.getElementById("gallery");
-  if (!photos) {
-    photos = document.createElement("div");
-    photos.id = "gallery";
-    cameraVizor.appendChild(photos);
-  }
-
   const onKeyDown = (e) => {
     if (e.key?.toLowerCase() !== "c") return;
 
@@ -266,6 +258,9 @@ function handleTakePhoto() {
 
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
+    const gallery = document.getElementById("gallery");
+    if (!gallery) return;
+
     canvas.toBlob((blob) => {
       if (!blob) return;
 
@@ -275,32 +270,79 @@ function handleTakePhoto() {
       img.src = url;
       img.alt = "captured photo";
       img.style.height = "80px";
-      img.style.width = "auto"; // optional, ca să nu fie gigantic
+      img.style.width = "auto";
 
-      photos.appendChild(img);
-
-      // dacă vrei cleanup de memorie când ștergi poza:
-      // img.addEventListener("load", () => URL.revokeObjectURL(url)); // ATENȚIE: nu revoke imediat dacă vrei să rămână afișată
+      gallery.prepend(img);
     }, "image/png");
-
-    const children = photos.children;
-    const length = children.length;
-
-    
   };
 
   document.addEventListener("keydown", onKeyDown);
+}
 
-  // IMPORTANT dacă e chemată de mai multe ori (React dev): cleanup
-  return () => document.removeEventListener("keydown", onKeyDown);
+function handleOpenImage() {
+  const gallery = document.getElementById("gallery");
+  if (!gallery) return;
+
+  // prevent multiple bindings
+  if (gallery.dataset.openImageBound === "1") return;
+  gallery.dataset.openImageBound = "1";
+
+  gallery.addEventListener("click", (e) => {
+    const img = e.target.closest("img");
+    if (!img) return;
+
+    // prevent multiple popups
+    let popUp = document.getElementById("imagePopUp");
+    if (popUp) popUp.remove();
+
+    popUp = document.createElement("div");
+    popUp.id = "imagePopUp";
+
+    const popUpImage = document.createElement("img");
+    popUpImage.src = img.src;
+    popUpImage.alt = img.alt || "image";
+    popUpImage.style.maxWidth = "90vw";
+    popUpImage.style.maxHeight = "90vh";
+    popUpImage.style.objectFit = "contain";
+    popUpImage.style.borderRadius = "8px";
+
+    // overlay styles
+    popUp.style.position = "fixed";
+    popUp.style.inset = "0";
+    popUp.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    popUp.style.zIndex = "1000";
+    popUp.style.display = "flex";
+    popUp.style.justifyContent = "center";
+    popUp.style.alignItems = "center";
+    popUp.style.cursor = "pointer";
+
+    popUp.appendChild(popUpImage);
+    document.body.appendChild(popUp);
+
+    const close = () => {
+      document.removeEventListener("keydown", onKeyDown);
+      popUp.remove();
+    };
+
+    const onKeyDown = (ev) => {
+      if (ev.key === "Escape") close();
+    };
+    document.addEventListener("keydown", onKeyDown);
+
+    // close only if you click the background (not the image)
+    popUp.addEventListener("click", (ev) => {
+      if (ev.target === popUp) close();
+    });
+  });
 }
 
 function context() {
   const context = {
-    handleMoveImage: handleMoveImage,
-    handleScaleImage: handleScaleImage,
-    handleStartCamera: handleStartCamera,
-    handleTakePhoto: handleTakePhoto
+    handleMoveImage,
+    handleScaleImage,
+    handleStartCamera,
+    handleTakePhoto,
+    handleOpenImage
   }
 
   return context;

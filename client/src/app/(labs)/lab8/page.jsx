@@ -9,7 +9,8 @@ export default function Camera() {
     handleMoveImage,
     handleScaleImage,
     handleStartCamera,
-    handleTakePhoto
+    handleTakePhoto,
+    handleOpenImage
   } = context();
 
   useEffect(() => {
@@ -17,11 +18,13 @@ export default function Camera() {
     handleScaleImage();
     handleStartCamera();
     handleTakePhoto();
+    handleOpenImage();
   }, [
     handleMoveImage,
     handleScaleImage,
     handleTakePhoto,
-    handleStartCamera
+    handleStartCamera,
+    handleOpenImage
   ])
 
   return (
@@ -44,7 +47,6 @@ export default function Camera() {
         <video id="video" autoPlay playsInline ></video>
         <canvas id="canvas"></canvas>
         <div className='bottomLid'>
-          <button id="galleryLeft"> {`<-`} </button>
           <div id='gallery'>
             {
               /*
@@ -52,7 +54,6 @@ export default function Camera() {
               */
             }
           </div>
-          <button id="galleryRight"> {`->`} </button>
         </div>
       </div>
     </div>
