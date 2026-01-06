@@ -1,0 +1,98 @@
+{
+    "films": [
+        {
+            "id": "f1",
+            "titlu": {
+                "text": "The Matrix",
+                "attributes": {
+                    "lang": "en"
+                }
+            },
+            "gen": {
+                "text": "Science Fiction",
+                "attributes": {}
+            },
+            "regizor": {
+                "text": "Lana Wachowski, Lilly Wachowski",
+                "attributes": {}
+            },
+            "anLansare": {
+                "text": 1999,
+                "attributes": {}
+            },
+            "scenarist": {
+                "text": "Lana Wachowski, Lilly Wachowski",
+                "attributes": {}
+            },
+            "producator": {
+                "text": "Joel Silver",
+                "attributes": {}
+            },
+            "scor": {
+                "text": 8.7,
+                "attributes": {}
+            },
+            "actori": [
+                {
+                    "text": "Keanu Reeves",
+                    "attributes": {
+                        "rol": "principal"
+                    }
+                },
+                {
+                    "text": "Carrie-Anne Moss",
+                    "attributes": {
+                        "rol": "secundar"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "f2",
+            "titlu": {
+                "text": "Inception",
+                "attributes": {
+                    "lang": "en"
+                }
+            },
+            "gen": {
+                "text": "Action / Sci-Fi",
+                "attributes": {}
+            },
+            "regizor": {
+                "text": "Christopher Nolan",
+                "attributes": {}
+            },
+            "anLansare": {
+                "text": 2010,
+                "attributes": {}
+            },
+            "scenarist": {
+                "text": "Christopher Nolan",
+                "attributes": {}
+            },
+            "producator": {
+                "text": "Emma Thomas",
+                "attributes": {}
+            },
+            "scor": {
+                "text": 8.8,
+                "attributes": {}
+            },
+            "actori": [
+                {
+                    "text": "Leonardo DiCaprio",
+                    "attributes": {
+                        "rol": "principal"
+                    }
+                },
+                {
+                    "text": "Joseph Gordon-Levitt",
+                    "attributes": {
+                        "rol": "secundar"
+                    }
+                }
+            ]
+        }
+    ]
+}
