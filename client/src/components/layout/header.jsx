@@ -83,6 +83,20 @@ const labs = [
     name: "lab9",
     link: "/lab9"
   },
+  {
+    id: 10,
+    name: "lab10",
+    items: [
+      {
+        name: "cinemateca",
+        link: '/lab10/cinemateca'
+      },
+      {
+        name: "fonoteca",
+        link: '/lab10/fonoteca'
+      }
+    ]
+  }
 ]
 
 export default function Header() {

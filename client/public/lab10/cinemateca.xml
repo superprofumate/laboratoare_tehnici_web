@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cinemateca>
+  <film id="f1">
+    <titlu lang="en">The Matrix</titlu>
+    <gen>Science Fiction</gen>
+    <regizor>Lana Wachowski, Lilly Wachowski</regizor>
+    <anLansare>1999</anLansare>
+    <scenarist>Lana Wachowski, Lilly Wachowski</scenarist>
+    <producator>Joel Silver</producator>
+    <actori>
+      <actor rol="principal">Keanu Reeves</actor>
+      <actor rol="secundar">Carrie-Anne Moss</actor>
+    </actori>
+    <scor>8.7</scor>
+  </film>
+
+  <film id="f2">
+    <titlu lang="en">Inception</titlu>
+    <gen>Action / Sci-Fi</gen>
+    <regizor>Christopher Nolan</regizor>
+    <anLansare>2010</anLansare>
+    <scenarist>Christopher Nolan</scenarist>
+    <producator>Emma Thomas</producator>
+    <actori>
+      <actor rol="principal">Leonardo DiCaprio</actor>
+      <actor rol="secundar">Joseph Gordon-Levitt</actor>
+    </actori>
+    <scor>8.8</scor>
+  </film>
+</cinemateca>
