@@ -1,6 +1,7 @@
 "use client";
 import context from './fonoteca.js';
 import { useEffect, useState } from 'react';
+import { BsSearchHeart } from "react-icons/bs";
 
 const ALBUMS_URL = "http://localhost:8000/albums.json";
 
@@ -10,7 +11,9 @@ export default function Fonoteca() {
   useEffect(() => {
     const {
       fetchData,
-      displayImages
+      displayImages,
+      displayOption,
+      init
     } = context();
 
     (async () => {
@@ -23,6 +26,8 @@ export default function Fonoteca() {
     })();
 
     displayImages();
+    displayOption();
+    init();
   }, []);
 
   useEffect(() => {
@@ -34,7 +39,15 @@ export default function Fonoteca() {
 
   return (
     <div id="container">
-      <div id="gallery">
+      <div id="galleryHandler">
+        <div className='searchArea'>
+          <input type="text" id="gallerySearch"/>
+          <button>
+            <BsSearchHeart size={20} />
+          </button>
+        </div>
+        <div id="gallery">
+      </div>
       </div>
       <div id="info">
       </div>

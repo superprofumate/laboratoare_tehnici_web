@@ -2,19 +2,117 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-content: flex-start;
+  align-items: flex-start;
   justify-content: space-between;
-
+  background-color: var(--background-secondary);
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
   width: 100%;
 
   #info {
-    color: red;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.9);
+    background-color: var(--background-tertiary);
+    border-radius: 10px;
+    max-width: 40%;
+    padding: 1rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    .title {
+      text-align: center;
+      width: 100%;
+      font-weight: bold;
+      font-size: 1.8rem;
+      margin: 1rem 0rem;
+    }
+
+    .image {
+      width: 500px;
+      height: 500px;
+      border-radius: 10px;
+
+      margin-bottom: 1rem;
+    }
+
+    &>* {
+      color: var(--background-secondary) !important;
+    }
   }
 
-  #gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 250px);
-    grid-template-rows: repeat(5, 250px);
-    gap: 0.5rem;
+  #galleryHandler {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    .searchArea {
+      display: flex;
+      width: 100%;
+
+      input {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        height: 2.5rem;
+        border-radius: 999px 0px 0px 999px;
+        border: 2px solid var(--background-secondary);
+        background-color: var(--text-secondary);
+        font-size: 1rem;
+
+        &:focus {
+          outline: none;
+          border: 2px solid var(--background-tertiary);
+          z-index: 1;
+        }
+      }
+
+      button {
+        cursor: pointer;
+        border-radius: 0px 999px 999px 0px;
+        width: 5.5rem;
+
+        background-color: var(--background-tertiary);
+        border: 2px solid var(--background-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        height: 2.5rem;
+
+        margin-left: -2px;
+
+        transition: all 0.2s ease-in-out;
+
+        svg {
+          color: var(--background-secondary);
+          transition: all 0.2s ease-in-out;
+        }
+
+        &:hover {
+          border: 2px solid var(--background-tertiary);
+          background-color: var(--text-secondary);
+          z-index: 1;
+
+          svg {
+            color: var(--background-tertiary);
+          }
+        }
+      }
+    }
+
+    #gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 250px);
+      grid-template-rows: repeat(5, 250px);
+      gap: 0.5rem;
+
+      &>* {
+        cursor: pointer;
+      }
+    }
   }
 }
