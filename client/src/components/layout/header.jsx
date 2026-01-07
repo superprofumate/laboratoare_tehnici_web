@@ -96,6 +96,24 @@ const labs = [
         link: '/lab10/fonoteca'
       }
     ]
+  },
+  {
+    id: 11,
+    name: "lab11",
+    items: [
+      {
+        name: "door",
+        link: "/lab11/door"
+      },
+      {
+        name: "clock",
+        link: "/lab11/clock"
+      },
+      {
+        name: "pack man",
+        link: "/lab11/pack-man"
+      }
+    ]
   }
 ]
 
