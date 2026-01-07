@@ -1,7 +1,8 @@
 const BLACK = "#000";
 const YELLOW = "#ffc037ff";
+const WHITE = "#fff";
 
-function drawPacman(x, y, r, mouthOpen = 0.01) {
+function drawPacman(x, y, r, mouthOpen = 0.01, direction = 1) {
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
 
@@ -26,6 +27,15 @@ function drawPacman(x, y, r, mouthOpen = 0.01) {
   ctx.beginPath();
   ctx.arc(x + r * 0.15, y - r * 0.6, r * 0.08, 0, Math.PI * 2);
   ctx.fill();
+
+  //minge
+  if(direction === 1)
+    return;
+  ctx.fillStyle = `rgba(255, 255, 255, ${mouthOpen})`;
+  ctx.beginPath();
+  ctx.arc(350 + mouthOpen * 100, 250, 20, 0, Math.PI * 2);
+  ctx.fill();
+  
 }
 
 function goPacMan(currentInterval, mouthOpen) {
@@ -38,8 +48,8 @@ function goPacMan(currentInterval, mouthOpen) {
     else if (mouthOpen.value >= 0.99)
       mouthOpen.direction = -1;
 
-    mouthOpen.value += 0.027 * mouthOpen.direction;
-    drawPacman(250, 250, 160, mouthOpen.value);
+    mouthOpen.value += 0.04 * mouthOpen.direction;
+    drawPacman(250, 250, 160, mouthOpen.value, mouthOpen.direction);
   }, 10);
 
   currentInterval.id = id;
